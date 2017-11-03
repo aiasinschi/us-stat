@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'us-stat';
+  items = [
+      {'John', '1234%'},
+      {'Mary', '4567*'},
+      {'Adrian', '1977(*&^)'}
+  ];
 }

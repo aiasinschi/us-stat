@@ -1,8 +1,37 @@
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.uss-title {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.uss-table {
+    border-spacing: 0px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .uss-row {
-    background: #121255;
-    color: #EDEDAA;
+    background: #D2F2F5;
+    color: #0D0D1A;
 }
 
 .uss-cell {
+    border: 1px solid #B2D2D5;
+    padding: 2px 2px 2px 2px;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+}
+
+.uss-head {
     border: 1px solid #020255;
+    background: #121255;
+    color: #ADADAA;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.uss-content {
+
 }

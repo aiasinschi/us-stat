@@ -1,41 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { User } from './user';
+import { DatasetService } from './dataset.service';
+import { Dataset } from './dataset';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'us-stat';
-  items = [
+
+  /*users: User[] = [
       {name: 'John', password: '1234%'},
       {name: 'Mary', password: '4567*'},
       {name: 'Adrian', password: '1977(*&^)'}
-  ];
-    /*var pg = require('pg');
-    var conString = "postgres://YourUserName:YourPassword@localhost:5432/YourDatabase";
+  ];*/
+  datasets: Dataset[];
 
-    var client = new pg.Client(conString);
-    client.connect();
+  constructor(private datasetService: DatasetService) {
+      this.datasetService = datasetService;
+  }
 
-    //queries are queued and executed one after another once the connection becomes available
-    var x = 1000;
-
-    while (x > 0) {
-        client.query("INSERT INTO junk(name, a_number) values('Ted',12)");
-        client.query("INSERT INTO junk(name, a_number) values($1, $2)", ['John', x]);
-        x = x - 1;
-    }
-
-    var query = client.query("SELECT * FROM junk");
-    //fired after last row is emitted
-
-    query.on('row', function(row) {
-        console.log(row);
-    });
-
-    query.on('end', function() {
-        client.end();
-    });*/
-
+  ngOnInit() {
+        console.log('entered onInit ... ')
+        this.datasetService.getAll().subscribe(ds => this.datasets = ds);
+  }
 }

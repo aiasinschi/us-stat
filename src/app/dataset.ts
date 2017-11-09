@@ -1,0 +1,29 @@
+export interface Dataset {
+    year: number;
+    codes: string[];
+    geographyLink: string;
+    variablesLink: string;
+    tagsLink: string;
+    examplesLink: string;
+    groupsLink: string;
+    validValuesLink: string;
+    documentationLink: string;
+    isAggregate: boolean;
+    isAvailable: boolean;
+    type: string;
+    title: string;
+    accessLevel: string;
+    bureauCodes: string[];
+    description: string;
+    distribution: string;
+    contactPoint: string;
+    identifier: string;
+    keywords: string[];
+    license: string;
+    modified: string;
+    programCodes: string[];
+    references: string[];
+    spatial: string;
+    temporal: string;
+    publisher: string;
+}

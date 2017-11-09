@@ -7,14 +7,14 @@
 <div class="uss-content">
     <table class="uss-table">
       <tr>
-        <th class="uss-head">Index</th>
-        <th class="uss-head">User Name</th>
-        <th class="uss-head">Password</th>
+        <th class="uss-head">Year</th>
+        <th class="uss-head">Title</th>
+        <th class="uss-head">Description</th>
       </tr>
-      <tr *ngFor="let item of items; let i=index" class="uss-row">
-          <td class="uss-cell">{{i}} </td>
-          <td class="uss-cell">{{item.name}}</td>
-          <td class="uss-cell">{{item.password}}</td>
+      <tr *ngFor="let dataset of datasets" class="uss-row">
+          <td class="uss-cell">{{dataset.year}}</td>
+          <td class="uss-cell">{{dataset.title}}</td>
+          <td class="uss-cell">{{dataset.description}}</td>
       </tr>
     </table>
 </div>

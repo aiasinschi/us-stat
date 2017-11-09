@@ -22,7 +22,7 @@
             <div id="dataset-list" *ngSwitchCase="0">
                 <p class="ds-label heading">List of datasets:</p>
                 <div *ngFor="let dataset of datasets" class="dataset"
-                     *ngClick="updateDetails(dataset)">
+                     (click)="updateDetails(dataset)">
                     <div>{{dataset['title']}}</div>
                 </div>
             </div>
@@ -30,15 +30,17 @@
                 <div>
                     <span class="ds-label heading">Variables:</span>
                     <span class="ds-link">{{fullDataURL}}</span>
-                    <span class="ds-back-button" ng-click="focusOnDatasets()">Back</span>
+                    <span class="ds-back-button" (click)="focusOnDatasets()">Back</span>
                 </div>
-                <div *ngFor="let var of variables">
-                    <p>
-                        <span class="ds-label">{{var['label']}}</span> ({{var['name']}})
-                        <input value=""/>
-                        <span style="color: darkblue; text-transform: capitalize;">{{var['predicateType'] ? var['predicateType'] : 'undef'}}</span>
-                        <span style="color: {{var['required'] ? 'red' : 'green'}};">{{var['required'] ? 'REQ' : 'OPT'}}</span>
-                    </p>
+                <div *ngIf="variables.length > 0">
+                    <div *ngFor="let v of variables">
+                        <p>
+                            <span class="ds-label">{{v['label']}}</span> ({{v['concept']}})
+                            <input value=""/>
+                            <span style="color: darkblue; text-transform: capitalize;">{{v['predicateType'] ? v['predicateType'] : 'undef'}}</span>
+                            <span class="{{v.requiredClass}}">{{v['required'] ? 'REQ' : 'OPT'}}</span>
+                        </p>
+                    </div>
                 </div>
             </div>
             <div id="loading" style="display: none;">Loading. Please wait...</div>

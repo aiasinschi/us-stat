@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { DatasetService } from './dataset.service';
+import { VariableService } from './variable.service';
 
 import { AppComponent } from './app.component';
 
@@ -12,7 +13,7 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule, HttpModule
   ],
-  providers: [DatasetService],
+  providers: [DatasetService, VariableService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -35,9 +35,8 @@ body {
 }
 
 .uss-content {
-
+    font-family: 'Ubuntu', sans-serif;
 }
-
 
 input {
     font-family: 'Ubuntu', sans-serif;
@@ -91,5 +90,12 @@ p {
 }
 .heading {
     font-size: large;
+}
+
+.requiredValue {
+    color: darkred;
+}
+.optionalValue {
+    color: darkgreen;
 }
 

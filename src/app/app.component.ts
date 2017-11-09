@@ -8,18 +8,21 @@ import { Dataset } from './dataset';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements OnInit {
   title = 'us-stat';
 
-  /*users: User[] = [
-      {name: 'John', password: '1234%'},
-      {name: 'Mary', password: '4567*'},
-      {name: 'Adrian', password: '1977(*&^)'}
-  ];*/
   datasets: Dataset[];
+  activeComponent: number = 0;
+  fullDataURL: string = '';
+  variables: [];
 
   constructor(private datasetService: DatasetService) {
       this.datasetService = datasetService;
+  }
+  
+  updateDetails(dataset: Dataset) {
+      console.log(dataset);
   }
 
   ngOnInit() {

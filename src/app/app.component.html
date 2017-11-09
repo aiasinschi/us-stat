@@ -4,7 +4,7 @@
     Welcome to {{title}}!
   </div>
 </div>
-<div class="uss-content">
+<!--<div class="uss-content">
     <table class="uss-table">
       <tr>
         <th class="uss-head">Year</th>
@@ -17,4 +17,29 @@
           <td class="uss-cell">{{dataset.description}}</td>
       </tr>
     </table>
+</div>-->
+<div class="uss-content" id="wrapper" [ngSwitch] = "activeComponent">
+            <div id="dataset-list" *ngSwitchCase="0">
+                <p class="ds-label heading">List of datasets:</p>
+                <div *ngFor="let dataset of datasets" class="dataset"
+                     *ngClick="updateDetails(dataset)">
+                    <div>{{dataset['title']}}</div>
+                </div>
+            </div>
+            <div id="dataset-detail" *ngSwitchCase="1">
+                <div>
+                    <span class="ds-label heading">Variables:</span>
+                    <span class="ds-link">{{fullDataURL}}</span>
+                    <span class="ds-back-button" ng-click="focusOnDatasets()">Back</span>
+                </div>
+                <div *ngFor="let var of variables">
+                    <p>
+                        <span class="ds-label">{{var['label']}}</span> ({{var['name']}})
+                        <input value=""/>
+                        <span style="color: darkblue; text-transform: capitalize;">{{var['predicateType'] ? var['predicateType'] : 'undef'}}</span>
+                        <span style="color: {{var['required'] ? 'red' : 'green'}};">{{var['required'] ? 'REQ' : 'OPT'}}</span>
+                    </p>
+                </div>
+            </div>
+            <div id="loading" style="display: none;">Loading. Please wait...</div>
 </div>

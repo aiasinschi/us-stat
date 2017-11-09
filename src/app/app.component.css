@@ -1,5 +1,7 @@
 body {
     font-family: 'Ubuntu', sans-serif;
+    font-size: 18px;
+    line-height: 90%;
 }
 
 .uss-title {
@@ -35,3 +37,59 @@ body {
 .uss-content {
 
 }
+
+
+input {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+}
+
+#dataset-list {
+    float: left;
+}
+
+#dataset-detail {
+    float: left;
+}
+#loading {
+    padding: 10px;
+    background-color: #000044;
+    color: white;
+    border-radius: 75px;
+    position: absolute;
+    left: 40%;
+    top: 40%;
+    z-index: 100;
+}
+
+.dataset {
+    margin: 2px;
+    border: 4px solid white;
+    cursor: pointer;
+}
+.dataset:hover {
+    border: 1px solid #000044;
+    padding: 3px;
+    border-radius: 5px;
+    color: #C0A0F0;
+}
+.dataset:active {
+    background-color: #0011FF;
+    color: white;
+}
+
+p {
+    margin: 5px;
+}
+
+.ds-label {
+    font-weight: bold;
+}
+.ds-back-button {
+    position: absolute;
+    right: 20px;
+}
+.heading {
+    font-size: large;
+}
+

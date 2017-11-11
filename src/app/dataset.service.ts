@@ -10,7 +10,6 @@ import { Dataset } from './dataset';
 @Injectable()
 export class DatasetService {
   private baseUrl: string = 'https://api.census.gov/data.json';
-  private theKey: string = 'b667e8eefd9f853b7357054725f24b2df91983970';
 
   constructor(private http : Http){
   }

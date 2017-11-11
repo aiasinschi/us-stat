@@ -10,7 +10,7 @@ body {
 
 .uss-table {
     border-spacing: 0px;
-    /*width: 400px;*/
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -84,9 +84,19 @@ p {
 .ds-label {
     font-weight: bold;
 }
+.ds-value {
+    font-style: italic;
+}
 .ds-back-button {
     position: absolute;
     right: 20px;
+}
+.ds-button {
+    border: 1px solid #DDDDFF;
+    max-width: 150px;
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 .heading {
     font-size: large;

@@ -4,20 +4,7 @@
     Welcome to {{title}}!
   </div>
 </div>
-<!--<div class="uss-content">
-    <table class="uss-table">
-      <tr>
-        <th class="uss-head">Year</th>
-        <th class="uss-head">Title</th>
-        <th class="uss-head">Description</th>
-      </tr>
-      <tr *ngFor="let dataset of datasets" class="uss-row">
-          <td class="uss-cell">{{dataset.year}}</td>
-          <td class="uss-cell">{{dataset.title}}</td>
-          <td class="uss-cell">{{dataset.description}}</td>
-      </tr>
-    </table>
-</div>-->
+
 <div class="uss-content" id="wrapper" [ngSwitch] = "activeComponent">
             <div id="dataset-list" *ngSwitchCase="0">
                 <p class="ds-label heading">List of datasets:</p>
@@ -30,17 +17,45 @@
                 <div>
                     <span class="ds-label heading">Variables:</span>
                     <span class="ds-link">{{fullDataURL}}</span>
-                    <span class="ds-back-button" (click)="focusOnDatasets()">Back</span>
+                    <span class="ds-back-button ds-button" (click)="focusOnDatasets()">Back</span>
                 </div>
-                <div *ngIf="variables.length > 0">
+                <div *ngIf="variables && (variables.length > 0)">
                     <div *ngFor="let v of variables">
-                        <p>
-                            <span class="ds-label">{{v['label']}}</span> ({{v['concept']}})
-                            <input value=""/>
+                        <div>
+                           <!-- <input type="checkbox" checked="{{v['selected'] ? 'checked' : ''}}"/>-->
+                             <input type="checkbox" [checked]="v['selected']" (change)="v['selected'] = !v['selected']" />
+                            <span class="ds-label">{{v['name']}}</span> ({{v['label']}})
+                            <input [value]="v.filter" (input)="v.filter = $event.target.value"/>
                             <span style="color: darkblue; text-transform: capitalize;">{{v['predicateType'] ? v['predicateType'] : 'undef'}}</span>
                             <span class="{{v.requiredClass}}">{{v['required'] ? 'REQ' : 'OPT'}}</span>
-                        </p>
+                        </div>
                     </div>
+                    <div class="ds-label" *ngIf="selectedDataset != null">
+                        <a href="{{getFullDataLink(selectedDataset)}}">Data for current filters</a>
+                        <div class="ds-button" (click)="bringData()">Fetch data</div>
+                    </div>
+                    <div class="ds-label" *ngIf="selectedDataset != null">
+                       <div *ngFor="let geo of geographies">
+                           <span class="ds-label">Name:</span>
+                           <span class="ds-value">{{geo['name']}}</span>
+                           <span class="ds-label">Requires:</span>
+                           <span class="ds-value">{{geo['requires']}}</span>
+                       </div>
+                    </div>
+                </div>
+                <div *ngIf="data && (data.length > 0)">
+                    <table class="uss-table">
+                        <tr>
+                            <th class="uss-head" *ngFor="let head of data[0]">
+                                {{head}}
+                            </th>
+                        </tr>
+                        <tr class="uss-row" *ngFor="let row of data.slice(1)">
+                            <td class="uss-cell" *ngFor="let cell of row">
+                                {{cell}}
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
             <div id="loading" style="display: none;">Loading. Please wait...</div>

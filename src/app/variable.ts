@@ -9,4 +9,7 @@ export interface Variable {
     predicateOnly: boolean;
     validValues: any[];
     requiredClass: string;
+    // used for selecting in the resultset
+    selected: boolean;
+    filter: string;
 }

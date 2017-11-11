@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { DatasetService } from './dataset.service';
 import { VariableService } from './variable.service';
+import { GeographyService } from './geography.service';
+import { DataService } from './data.service';
 
 import { AppComponent } from './app.component';
 
@@ -13,7 +15,7 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule, HttpModule
   ],
-  providers: [DatasetService, VariableService],
+  providers: [DatasetService, VariableService, GeographyService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -10,7 +10,6 @@ import { Dataset } from './dataset';
 
 @Injectable()
 export class VariableService {
-   private theKey: string = 'b667e8eefd9f853b7357054725f24b2df91983970';
 
   constructor(private http : Http){
   }
@@ -35,16 +34,16 @@ function mapDatasets(response: Response): Variable[]{
   //throw new Error('ups! Force choke!');
   // The response of the API has a results
   // property with the actual results
-  console.log(response.json());
+  //console.log(response.json());
   let vars = response.json().variables;
   let newVars: any[] = [];
   for (var i = 0; i < Object.keys(vars).length; i++)     {
       let key = Object.keys(vars)[i];
-      if ((key !== 'in') && (key !== 'for')) {
+      //if ((key !== 'in') && (key !== 'for')) {
         let nv = vars[key];
         nv['name'] = key;
         newVars.push(nv)  ;
-      }
+      //}
   }
   return newVars.map(toVariable);
 }
@@ -60,7 +59,9 @@ function toVariable(r:any): Variable {
     required: r.required,
     predicateOnly: r.predicateOnly,
     validValues: r.validValues,
-    requiredClass: r.required ? 'requiredValue' : 'optionalValue'
+    requiredClass: r.required ? 'requiredValue' : 'optionalValue',
+    selected: true,
+    filter: ''
   });
   console.log(variable);
   return variable;
